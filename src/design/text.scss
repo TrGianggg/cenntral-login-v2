@@ -1,0 +1,30 @@
+.text-gradient {
+  background: linear-gradient(180deg, #EDE4C9 0%, #CBB471 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-dark {
+  background: linear-gradient(180deg, #051034 0%, #0B2474 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-primary-150 {
+  color: #E8D6A1;
+}
+
+.light-theme {
+  .text-primary-150 {
+    color: #0F1419;
+  }
+  .text-gradient {
+    color: #0F1419;
+    background: transparent;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
+}
+.break-words {
+  word-break: break-word;
+}

@@ -1,0 +1,57 @@
+@import '../variable.scss';
+.ant-tabs-nav {
+  height: 60px !important;
+  background: $neutral-850;
+  border-radius: 16px;
+  overflow: hidden;
+
+  .ant-tabs-tab {
+    font-size: 20px;
+    font-weight: 400;
+    user-select: none;
+    @apply px-6 justify-center hover:text-primary-color;
+  }
+  .ant-tabs-tab-btn {
+    color: $neutral-400 !important;
+  }
+
+  .ant-tabs-tab-active {
+    .ant-tabs-tab-btn {
+      font-weight: 700;
+      //color: $primary-color !important;
+      color: var(--gold-150-1) !important;
+    }
+  }
+
+  .ant-tabs-ink-bar {
+    height: 2px !important;
+    background: var(--gold-150-1);
+  }
+}
+
+
+
+.tab-tomxu-manager {
+  .ant-tabs-nav-wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .ant-tabs-tab {
+    @apply px-0 md:px-6;
+  }
+
+}
+
+
+
+.ant-tabs-top > .ant-tabs-nav::before {
+  border-bottom: unset !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .ant-tabs-tab {
+    font-size: 14px !important;
+  }
+}

@@ -1,0 +1,33 @@
+@import "../variable.scss";
+.ant-popover-content {
+  background: var(--bg-popup) !important;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.40);;
+  .ant-popover-inner-content {
+    background: var(--bg-popup) !important;
+    color: $neutral-300;
+    padding: 20px;
+    font-size: 16px;
+  }
+  .ant-popover-arrow-content{
+    background: var(--bg-popup) !important;
+  }
+}
+
+.share-popup {
+  .ant-popover-inner-content {
+    padding: 10px 0;
+  }
+}
+.dark-theme {
+  .ant-popover-content {
+    border: 1px solid $neutral-600;
+    box-shadow: none;
+  }
+}
+.cs-popup {
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+}

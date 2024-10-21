@@ -1,0 +1,12 @@
+@import './variable.scss';
+.primary-btn {
+  display: inline-flex;
+  height: 56px;
+  padding: 16px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #000;
+  border-radius: 40px;
+  background: $gold-150;
+}

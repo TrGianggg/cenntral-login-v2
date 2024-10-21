@@ -1,0 +1,50 @@
+.transition-500 {
+  @apply transition-all duration-500;
+}
+
+.transition-300 {
+  @apply transition-all duration-300;
+}
+
+.transition-200 {
+  @apply transition-all duration-200;
+}
+
+.transition-100 {
+  @apply transition-all duration-100;
+}
+
+.transition-1000 {
+  @apply transition-all duration-1000;
+}
+
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 1s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(80px);
+  opacity: 0;
+}
+
+
+
+.slide-tab-enter-active {
+  transition: all 0.6s ease-out;
+}
+
+.slide-tab-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-tab-enter-from,
+.slide-tab-leave-to {
+  transform: translateX(80px);
+  opacity: 0;
+}

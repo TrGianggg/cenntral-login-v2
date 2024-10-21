@@ -1,0 +1,145 @@
+@import './variable.scss';
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
+
+.font-cairo {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+.text-heading-1 {
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.text-heading-2 {
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.text-heading-3 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.text-heading-4 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.text-body-1 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.text-body-2 {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.text-body-3 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.text-body-4 {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.text-body-5 {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .text-heading-1 {
+    font-size: 54px;
+  }
+
+  .text-heading-2 {
+    font-size: 44px;
+  }
+
+  .text-heading-3 {
+    font-size: 32px;
+  }
+
+  .text-heading-4 {
+    font-size: 24px;
+  }
+
+  .text-body-1 {
+    font-size: 20px;
+  }
+
+  .text-body-2 {
+    font-size: 18px;
+  }
+
+  .text-body-3 {
+    font-size: 16px;
+  }
+
+  .text-body-4 {
+    font-size: 14px;
+  }
+
+  .text-body-5 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .text-heading-1 {
+    font-size: 32px;
+  }
+
+  .text-heading-2 {
+    font-size: 28px;
+  }
+
+  .text-heading-3 {
+    font-size: 24px;
+  }
+
+  .text-heading-4 {
+    font-size: 20px;
+  }
+
+  .text-body-1 {
+    font-size: 18px;
+  }
+
+  .text-body-2 {
+    font-size: 16px;
+  }
+
+  .text-body-3 {
+    font-size: 14px;
+  }
+
+  .text-body-4 {
+    font-size: 12px;
+  }
+
+  .text-body-5 {
+    font-size: 12px;
+  }
+}

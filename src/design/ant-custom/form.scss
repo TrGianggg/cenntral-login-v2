@@ -1,0 +1,177 @@
+.ant-form {
+  .ant-form-item-control-input-content {
+    .ant-input {
+      color: #DFDFDF;
+      background: transparent !important;
+      height: $height-input !important;
+      border: 1px solid #474747;
+      border-radius: 4px;
+
+      &:focus {
+        border-color: #EDF2F7;
+        box-shadow: unset !important;
+        border-right-width: 1px !important;
+      }
+
+      &:hover {
+        border-color: #929292 !important;
+      }
+
+    }
+
+    .ant-input-password {
+      height: 48px !important;
+      background: transparent !important;
+      border: 1px solid #474747 !important;
+      border-radius: 4px;
+      box-shadow: unset !important;
+
+      &:hover,
+      &:active{
+        border-color: #929292 !important;
+      }
+
+      .ant-input {
+        height: 100% !important;
+        border: unset !important;
+      }
+
+      .anticon {
+        color: #616161 !important;
+        font-size: 20px;
+      }
+
+    }
+  }
+
+  .ant-form-item-required, .ant-form-item-label >label {
+    flex-direction: row-reverse;
+    gap: 4px;
+    color: #929292;
+  }
+
+  .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    color: #CBB472 !important;
+  }
+
+  .ant-form-item-explain-error {
+    padding-top: 8px;
+    font-size: 12px;
+  }
+
+  ::placeholder {
+    color: #474747 !important;
+  }
+}
+
+.ant-input {
+  color: var(--input-color) !important;
+  background: transparent !important;
+  height: $height-input;
+  border: 1px solid #474747 !important;
+  border-radius: 4px !important;
+
+  &:focus {
+    border-color: #EDF2F7;
+    box-shadow: unset !important;
+    border-right-width: 1px !important;
+  }
+
+  &:hover {
+    border-color: #929292;
+  }
+
+}
+
+.form-input-phone-number {
+  .ant-form-item-control-input-content {
+    display: flex;
+  }
+  .ant-select-selector {
+    border-radius: 4px 0 0 4px !important;
+    box-shadow: unset !important;
+    border-right: 0 !important;
+  }
+  .ant-input {
+    border-radius: 0 4px 4px 0 !important;
+  }
+  .ant-select-selection-search-input {
+    height: 100% !important;
+  }
+}
+
+.dark-theme {
+  .form-input-phone-number {
+    .ant-select-arrow {
+      color: #a1a1a1;
+    }
+  }
+}
+
+.ant-input-number, .ant-input-affix-wrapper, .ant-input-number-affix-wrapper {
+  background: transparent !important;
+  border: 1px solid $neutral-600 !important;
+  border-radius: 4px !important;
+  box-shadow: unset !important;
+  .ant-input-number-input {
+    height: $height-input !important;
+    color: var(--color-white);
+  }
+}
+.ant-input-affix-wrapper {
+  padding: 0 11px !important;
+  .ant-input {
+    border: unset !important;
+  }
+}
+
+.ant-input-number-affix-wrapper {
+  .ant-input-number {
+    border: unset !important;
+  }
+}
+
+.input-transfer {
+  .ant-input-number-prefix {
+    min-width: 20%;
+    border-right: 1px solid $neutral-600;
+  }
+
+  .ant-input-number-input {
+    padding-left: 24px !important;
+  }
+}
+
+.ant-input-number-handler {
+  background: var(--bg-arrow-inpit-number) !important;
+}
+
+.ant-input-number-handler:hover .ant-input-number-handler-up-inner, .ant-input-number-handler:hover .ant-input-number-handler-down-inner {
+  color: $gold-150 !important;
+}
+
+.cs-input-search {
+  border-radius: 999px !important;
+  background: var(--bg-input) !important;
+  border: none !important;
+  &.cs-input-search-white {
+    background: #fff !important;
+    border: 1px solid var(--input-border-color) !important;
+    .ant-input-prefix {
+      margin-right: 12px;
+    }
+  }
+  .ant-input {
+    height: 36px;
+  }
+}
+.dark-theme {
+  .cs-input-search {
+    &.cs-input-search-white {
+      background: transparent !important;
+      .ant-input-prefix {
+        color: white;
+      }
+    }
+  }
+}

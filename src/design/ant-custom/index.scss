@@ -1,0 +1,27 @@
+@import 'button.scss';
+@import 'form.scss';
+@import 'select.scss';
+@import 'modal.scss';
+@import 'message.scss';
+@import 'popup.scss';
+@import 'tabs.scss';
+@import 'table.scss';
+@import 'pagination.scss';
+@import 'tooltip.scss';
+@import 'check-box.scss';
+@import 'switch.scss';
+@import 'image.scss';
+
+
+
+.ant-spin-blur {
+  opacity: 0.1 !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.ant-message-custom-content {
+  display: flex;
+
+}
+

@@ -1,0 +1,3 @@
+npm run dev -- --host=dev-app.tomiru.com
+Nature.vietnam1@gmail.com
+Binhthuy1@
