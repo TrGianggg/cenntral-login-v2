@@ -73,7 +73,7 @@ import CopyBox from '@/components/shared/CopyBox.vue'
 import QrcodeVue from 'qrcode.vue'
 import { userStore } from '@/stores/userStore'
 import { computed } from 'vue'
-import {useThemeStore} from "@/stores/themeStore";
+import { useThemeStore } from '@/stores/themeStore'
 
 const themeStore = useThemeStore()
 const isDark = computed(() => themeStore.isDarkStore)
