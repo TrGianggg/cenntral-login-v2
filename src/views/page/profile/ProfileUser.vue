@@ -2,7 +2,7 @@
   <div class="page-club w-full flex max-w-[1920px]">
     <div
       class="mx-auto w-full flex flex-col items-center"
-      :class="{ 'gap-5': tabActive !== 'post' }"
+      :class="{ 'gap-5': tabActive !== 'refCode' }"
     >
       <div class="w-full bg-neutral-850 flex flex-col justify-between items-center">
         <div class="w-full max-w-[1240px] flex flex-col justify-between items-center">
@@ -98,15 +98,9 @@
         </div>
       </div>
       <div class="w-full flex justify-center max-w-[650px]">
-        <ListPost
-          v-if="tabActive === 'post'"
-          :is-me="isMe"
-        />
-        <MyRefCode v-if="tabActive === 'refCode'" />
-        <ListFriendTab v-if="tabActive === 'friend'" />
-        <UserIntroduce
-          v-if="tabActive === 'introduce'"
-          :userInfo="userInfo"
+        <MyRefCode
+          v-if="tabActive === 'refCode'"
+          :is-visible="isModalVisible"
         />
       </div>
     </div>
@@ -131,7 +125,6 @@ import { useI18n } from 'vue-i18n'
 import { getUserDetailApi } from '@/api/user'
 import { useRoute } from 'vue-router'
 import { getFullNameUser } from '@/helper/ultil'
-import { addFriendApi } from '@/api/friend'
 import router from '@/router'
 import { userStore } from '@/stores/userStore'
 import ButtonUserActions from '@/views/page/profile/components/ButtonUserActions.vue'
@@ -158,6 +151,12 @@ export default {
   setup() {
     const { t } = useI18n()
     const { isMe } = useUserProfile()
+    const isModalVisible = ref(false)
+    const tabActive = ref('refCode')
+    onMounted(() => {
+      isModalVisible.value = true
+      supportStore().setKey(KEY_SUPPORT.REFCODE); 
+    })
     const refresh = computed(() => {
       return userStore().refresh
     })
@@ -167,26 +166,14 @@ export default {
     const userInfo = ref({})
     const route = useRoute()
 
-    const tabActive = ref('post')
     const listTab = computed(() => {
       let tabs = [
-        {
-          value: 'post',
-          label: 'Bài viết'
-        },
-        {
-          value: 'friend',
-          label: 'Bạn bè'
-        },
-        {
-          value: 'introduce',
-          label: 'Giới thiệu'
-        },
         {
           value: 'refCode',
           label: 'Mã giới thiệu'
         }
       ]
+
       if (!isMe.value) {
         tabs = tabs.filter((o) => o.value !== 'refCode')
       }
@@ -209,7 +196,6 @@ export default {
       const username = route.params.username
       getUserDetailApi(username).then((resp) => {
         userInfo.value = resp.data
-        console.log(userInfo.value)
       })
     }
     watch(

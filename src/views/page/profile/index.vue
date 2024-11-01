@@ -1,8 +1,9 @@
 <template>
   <div class="page-club w-full flex max-w-[1920px]">
+
     <div
       class="mx-auto w-full flex flex-col items-center"
-      :class="{ 'gap-5': tabActive !== 'ListPost' }"
+      :class="{ 'gap-5': tabActive !== 'refCode' }"
     >
       <div class="w-full bg-neutral-850 flex flex-col justify-between items-center">
         <div class="w-full max-w-[1240px] flex flex-col justify-between items-center">
@@ -75,106 +76,73 @@
     </div>
   </div>
 </template>
+
 <script>
-import { CheckOutlined, CameraFilled } from '@ant-design/icons-vue'
+import { ref, computed, onMounted } from 'vue'
+import { CheckOutlined } from '@ant-design/icons-vue'
+import modalSupport from '@/components/support/ModalSupport.vue'
 import { userStore } from '@/stores/userStore'
-import { computed, onMounted, reactive, ref } from 'vue'
-import { logOut } from '@/helper'
-import router from '@/router'
-import MyRefCode from '@/views/page/profile/components/MyRefCode.vue'
-import ListPost from '@/views/page/profile/components/ListPost.vue'
-import IconChangePassword from '@/components/shared/icons/IconChangePassword.vue'
-import IconLogout from '@/components/shared/icons/IconLogout.vue'
-import AppUserInfo from '@/components/app/AppUserInfo.vue'
-import ProfileAvatar from '@/views/page/profile/components/ProfileAvatar.vue'
-import CoverImage from '@/views/page/profile/components/CoverImage.vue'
-import ListFriend from '@/views/page/profile/components/ListFriendTab.vue'
-import { useAppStore } from '@/stores/appStore'
 import { useI18n } from 'vue-i18n'
-import { updateImage } from '@/api/user'
+import router from '@/router'
+import CoverImage from '@/views/page/profile/components/CoverImage.vue'
+import ProfileAvatar from '@/views/page/profile/components/ProfileAvatar.vue'
+import AppUserInfo from '@/components/app/AppUserInfo.vue'
+import ListPost from '@/views/page/profile/components/ListPost.vue'
+import ListFriend from '@/views/page/profile/components/ListFriendTab.vue'
+import MyRefCode from '@/views/page/profile/components/MyRefCode.vue'
+import { useAppStore } from '@/stores/appStore'
+
 
 export default {
   name: 'PageHome',
   components: {
-    IconLogout,
-    IconChangePassword,
+    modalSupport,
     CheckOutlined,
-    MyRefCode,
+    CoverImage,
+    ProfileAvatar,
     AppUserInfo,
     ListPost,
-    CameraFilled,
-    ProfileAvatar,
-    CoverImage,
-    ListFriend
+    ListFriend,
+    MyRefCode
   },
   setup() {
     const { t } = useI18n()
-    const states = reactive({
-      loading: false
-    })
-    const userInfo = computed(() => {
-      return userStore().userInfo
-    })
-    const tabActive = ref('ListPost')
+    const userInfo = computed(() => userStore().userInfo)
+    const tabActive = ref('MyRefCode')
+
     const listTab = [
-      {
-        value: 'ListPost',
-        label: 'Bài viết'
-      },
-      {
-        value: 'ListFriend',
-        label: 'Bạn bè'
-      },
-      {
-        value: 'intro',
-        label: 'Giới thiệu'
-      },
-      {
-        value: 'MyRefCode',
-        label: 'Mã giới thiệu'
-      }
+      { value: 'ListPost', label: 'Bài viết' },
+      { value: 'ListFriend', label: 'Bạn bè' },
+      { value: 'intro', label: 'Giới thiệu' },
+      { value: 'MyRefCode', label: 'Mã giới thiệu' }
     ]
+
+    onMounted(() => {
+      setDataBreadCrumb()
+    })
+
     const handleSelectTab = (tab) => {
       tabActive.value = tab
     }
 
-    const getRecognitionFace = async () => {
-      router.push({
-        name: 'kyc'
-      })
+    const getRecognitionFace = () => {
+      router.push({ name: 'kyc' })
     }
+
     const setDataBreadCrumb = () => {
       const data = [
-        {
-          label: t('layout.menu_main.home'),
-          link: '/'
-        },
-        {
-          label: t('common.profile')
-        }
+        { label: t('layout.menu_main.home'), link: '/' },
+        { label: t('common.profile') }
       ]
       useAppStore().setDataBreadCrumb(data)
     }
-    onMounted(() => {
-      setDataBreadCrumb()
-    })
+
     return {
-      states,
       userInfo,
       listTab,
       tabActive,
       handleSelectTab,
-      logOut,
-      getRecognitionFace
-    }
-  },
-
-  methods: {
-    onCoverChange(event) {
-      const file = event.target.files[0]
-      const formData = new FormData()
-      formData.append('profile', file)
-      updateImage(formData)
+      getRecognitionFace,
     }
   }
 }
